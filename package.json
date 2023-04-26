@@ -1,0 +1,39 @@
+{
+  "name": "authentication-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/app.js",
+  "scripts": {
+    "dev": "tsnd --files --transpile-only --respawn --ignore-watch node_modules src/app.ts",
+    "build": "tsc",
+    "docker-deploy": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevPhde/authentication-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevPhde/authentication-api/issues"
+  },
+  "homepage": "https://github.com/DevPhde/authentication-api#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/sequelize": "^4.28.14",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.1",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.31.0"
+  }
+}
