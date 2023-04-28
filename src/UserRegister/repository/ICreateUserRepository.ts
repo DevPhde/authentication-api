@@ -1,7 +1,7 @@
 import { UserEntity } from "../entities/User";
 
 export interface ICreateUserRepository {
-    findByCpf(cpf: String): Promise<Boolean>;
-    findByEmail(email: String): Promise<Boolean>;
+    findByCpf(cpf: string): Promise<boolean>;
+    findByEmail(email: string): Promise<boolean>;
     save(user: UserEntity): Promise<void>;
 }

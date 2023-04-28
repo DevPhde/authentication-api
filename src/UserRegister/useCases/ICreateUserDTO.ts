@@ -1,6 +1,6 @@
-export interface IUserDTO {
-    name: String;
-    cpf: String;
-    email: String;
-    password: String;
+export interface ICreateUserDTO {
+    name: string;
+    cpf: string;
+    email: string;
+    password: string;
 }

@@ -1,5 +1,5 @@
 import { ICreateUserRepository } from "../repository/ICreateUserRepository"
-import { IUserDTO } from "./ICreateUserDTO"
+import { ICreateUserDTO } from "./ICreateUserDTO"
 import { UserEntity } from "../entities/User"
 import { PasswordProtection } from "../../provider/bcrypt/bcryptProvider";
 
@@ -9,7 +9,7 @@ export class CreateUserUseCase {
         private passwordProtection: PasswordProtection 
     ){}
 
-    async execute(data: IUserDTO){
+    async execute(data: ICreateUserDTO){
         const cpfAlreadyExists = await this.userRepository.findByCpf(data.cpf) !== null ? true : false;
         const emailAlreadyExists = await this.userRepository.findByEmail(data.email) !== null ? true : false;
 
