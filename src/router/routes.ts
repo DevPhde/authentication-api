@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { createUserController } from "../UserRegister/Index";
 import {authorizationUserController} from "../UserAuthorization/Index"
+import { sendTokenController } from "../UserPasswordRecovery/SendToken/Index";
 
 export const routes = Router();
 
@@ -13,4 +14,8 @@ routes
 
     .post('/user/login', (request, response) => {
         return authorizationUserController.handle(request, response)
+    })
+
+    .post('/user/recoverypassword', (request, response) => {
+        return sendTokenController.handle(request, response)
     })
