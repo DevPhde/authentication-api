@@ -19,8 +19,12 @@ export class SendTokenUseCase {
         if (user === null) {
             throw new Error('Invalid Email')
         }
+
+        const userHash = await this.jsonWebTokenProvider.jwtSign(email)
+        await this.sequelizeUserPasswordRecoveryRepository.updateJwtToken(user.dataValues.id, userHash)
+
         const token = this.tokenGenerator.generate()
-        await this.redisDatabase.setToken(email, token);
+        await this.redisDatabase.setToken(userHash, token);
 
         
         await this.mailTrapProvider.sendMail({
@@ -37,8 +41,6 @@ export class SendTokenUseCase {
 
         })
         
-        const userHash = await this.jsonWebTokenProvider.jwtSign(email)
-        await this.sequelizeUserPasswordRecoveryRepository.updateJwtToken(user.dataValues.id, userHash)
         return userHash
     }
 }

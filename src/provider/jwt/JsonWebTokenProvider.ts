@@ -8,4 +8,12 @@ export class JsonWebTokenProvider implements IJwtProvider {
         const token = await jwt.sign({email: email}, process.env.JWT_SECRET, {expiresIn: '1d'})
         return token
     }
+
+    async jwtVerify(hash: string): Promise<void> {
+        try{
+           await jwt.verify(hash, process.env.JWT_SECRET)
+        } catch {
+            throw new Error('Invalid JWT')
+        }
+    }
 }

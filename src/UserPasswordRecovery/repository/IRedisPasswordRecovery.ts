@@ -1,4 +1,4 @@
 export interface IRedisPasswordRecovery {
-    setToken(email: string, token: number): Promise<void>;
-    getToken(email: string): Promise<string>
+    setToken(hash: string, token: number): Promise<void>;
+    getToken(hash: string): Promise<number>
 }
