@@ -1,7 +1,7 @@
 import { ICreateUserRepository } from "../repository/ICreateUserRepository"
 import { ICreateUserDTO } from "./ICreateUserDTO"
 import { UserEntity } from "../entities/User"
-import { PasswordProtection } from "../../provider/bcrypt/bcryptProvider";
+import { PasswordProtection } from "../../provider/bcrypt/BcryptProvider";
 
 export class CreateUserUseCase {
     constructor(

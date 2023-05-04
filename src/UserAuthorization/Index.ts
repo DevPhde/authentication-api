@@ -1,7 +1,7 @@
 import { UserAuthorizationController } from "./useCases/UserAuthorizationController";
 import { UserAuthotizationUseCase } from "./useCases/UserAuthorizationUseCase";
 import { SequelizeUserAuthorizationRepository } from "./repository/implementations/SequelizeUserAuthorizationRepository";
-import { PasswordProtection } from "../provider/bcrypt/bcryptProvider";
+import { PasswordProtection } from "../provider/bcrypt/BcryptProvider";
 import { JsonWebTokenProvider } from "../provider/jwt/JsonWebTokenProvider";
 
 

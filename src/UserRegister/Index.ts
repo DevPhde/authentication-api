@@ -1,7 +1,7 @@
 import { SequelizeNewUserRepository } from "./repository/implementations/SequelizeNewUserRepository";
 import { CreateUserController } from "./useCases/CreateUserController";
 import { CreateUserUseCase } from "./useCases/CreateUserUseCase";
-import { PasswordProtection } from "../provider/bcrypt/bcryptProvider";
+import { PasswordProtection } from "../provider/bcrypt/BcryptProvider";
 
 const sequelizeNewUserRepository = new SequelizeNewUserRepository()
 const passwordProtection = new PasswordProtection()

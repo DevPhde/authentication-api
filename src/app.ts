@@ -13,4 +13,5 @@ app.listen(port, () => {
 app.use(express.json())
 app.use(cors())
 app.use(routes)
+
 syncTables()

@@ -1,5 +1,5 @@
 import { IUserAuthorizationDTO } from "./IUserAuthorizationDTO";
-import { PasswordProtection } from "../../provider/bcrypt/bcryptProvider";
+import { PasswordProtection } from "../../provider/bcrypt/BcryptProvider";
 import { SequelizeUserAuthorizationRepository } from "../repository/implementations/SequelizeUserAuthorizationRepository";
 import { JsonWebTokenProvider } from "../../provider/jwt/JsonWebTokenProvider";
 
