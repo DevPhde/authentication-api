@@ -8,8 +8,8 @@ services:
       JWT_SECRET: chavesecreta
       PORT: 3002
       MAILTRAP_HOST: sandbox.smtp.mailtrap.io
-      MAILTRAP_USER: fb2b05191313d6
-      MAILTRAP_PASSWORD: 57024542cb21c5
+      MAILTRAP_USER: SEU USUÁRIO
+      MAILTRAP_PASSWORD: SUA SENHA
       REDIS_HOST: redis
       POSTGRES_HOST: db
       POSTGRES_USER: postgres
