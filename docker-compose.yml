@@ -10,6 +10,7 @@ services:
       MAILTRAP_HOST: sandbox.smtp.mailtrap.io
       MAILTRAP_USER: SEU USUÁRIO
       MAILTRAP_PASSWORD: SUA SENHA
+      MAILTRAP_MAIL: SEU EMAIL
       REDIS_HOST: redis
       POSTGRES_HOST: db
       POSTGRES_USER: postgres
