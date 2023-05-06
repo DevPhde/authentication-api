@@ -28,7 +28,7 @@ Express.js, TypeScript, PostgreSQL, Redis e Docker.
 ## Como Rodar o Projeto
 Observação: Para rodar o projeto é necessário ter o Docker instalado e configurado na máquina.
 
-Observação²: Para que a funcionalidade de envio de emails funcione corretamente, é necessário configurar as variáveis de ambiente `MAILTRAP_USER` e `MAILTRAP_PASSWORD` no arquivo `docker-compose.yml` com as credenciais da sua conta no Mailtrap. Dessa forma, você poderá visualizar os emails enviados na caixa de entrada da sua conta e testar essa funcionalidade.
+Observação²: Para que a funcionalidade de envio de emails funcione corretamente, é necessário configurar as variáveis de ambiente `MAILTRAP_USER`,  `MAILTRAP_PASSWORD` e `MAILTRAP_MAIL` no arquivo `docker-compose.yml` com as credenciais da sua conta no Mailtrap. Dessa forma, você poderá visualizar os emails enviados na caixa de entrada da sua conta e testar essa funcionalidade.
 
 ```
 environment:
@@ -38,6 +38,7 @@ environment:
       MAILTRAP_HOST: sandbox.smtp.mailtrap.io
       MAILTRAP_USER: SEU USUÁRIO
       MAILTRAP_PASSWORD: SUA SENHA
+      MAILTRAP_MAIL: SEU EMAIL
       REDIS_HOST: redis
       POSTGRES_HOST: db
       POSTGRES_USER: postgres
