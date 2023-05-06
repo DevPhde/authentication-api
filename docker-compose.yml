@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    command:  npm run start
+    environment:
+      NODE_ENV: development
+      JWT_SECRET: chavesecreta
+      PORT: 3002
+      MAILTRAP_HOST: sandbox.smtp.mailtrap.io
+      MAILTRAP_USER: fb2b05191313d6
+      MAILTRAP_PASSWORD: 57024542cb21c5
+      REDIS_HOST: redis
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "3002:3002"
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .:/app
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"

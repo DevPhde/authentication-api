@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsnd --files --transpile-only --respawn --ignore-watch node_modules src/app.ts",
     "build": "tsc",
-    "docker-deploy": "node app.js"
+    "docker-deploy": "node app.js",
+    "start": "node build/app.js"
   },
   "repository": {
     "type": "git",
