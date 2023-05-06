@@ -6,7 +6,7 @@ export async function middlewareVerification(request: Request, response: Respons
 
 
     if (!authorization) {
-        response.sendStatus(401)
+        return response.sendStatus(401)
     }
 
     const jsonWebToken = new JsonWebTokenProvider();

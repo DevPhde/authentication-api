@@ -12,12 +12,9 @@ export class AssignNewPasswordUseCase {
 
     async execute(newPassword: IAssignNewPasswordDTO): Promise<void> {
         const user = await this.sequelizeUserPasswordRepository.getUserByJwt(newPassword.hash)
-        console.log(user.dataValues)
         if(await this.passwordProtection.checkPasswordAuthenticity(newPassword.password, user.dataValues.password)) {
             throw new Error('new password cannot be the same as the old one')
         }
-        console.log(await this.passwordProtection.checkPasswordAuthenticity(newPassword.password, user.dataValues.password))
-
         await this.sequelizeUserPasswordRepository.updatePassword(user.dataValues.id, await this.passwordProtection.securePassword(newPassword.password))
     }
 }
