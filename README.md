@@ -62,5 +62,313 @@ Observação: É importante lembrar que a primeira execução do comando pode le
 3. Acesse o servidor através do endereço `http://localhost:3002`.
 
 Com esses passos, o projeto deverá estar rodando corretamente na sua máquina.
+
+## Documentação dos Endpoints
+
+<details><summary>(POST) <strong>/new/user</strong></summary>
+
+<br/>
+<b>Responsável por criar novo usuário.</b>
+<br/>
+<br/>
+
+<div>
+Request:
+<br/>
+<br/>
+Body
+
+```
+JSON
+{
+	"name": "nome completo",
+	"cpf": "123.456.789-01",
+	"email": "teste@teste.com",
+	"password": "123"
+}
+```
+
+Response:
+
+HTTP CODE: 201
+
+<br/>
+Body
+
+```
+OK
+```
+
+HTTP CODE: 401
+
+Caso CPF ou email já esteja cadastrado.
+
+<br/>
+Body
+
+```
+JSON
+{
+	"message": "CPF  e  Email Já cadastrado."
+} 
+```
+
+</div>
+
+</details>&nbsp;
+
+<details><summary>(POST) <strong>/user/login</strong></summary>
+
+<br/>
+<b>Responsável por autenticar(fazer login) de usuário cadastrado.</b>
+<br/>
+<br/>
+
+<div>
+Request:
+<br/>
+<br/>
+Body
+
+```
+JSON
+{
+	"email": "teste@teste.com",
+	"password": "123"
+}
+```
+
+Response:
+
+HTTP CODE: 200
+
+<br/>
+Body
+
+```
+{
+	"jwt": HASH JWT
+}
+```
+
+HTTP CODE: 401
+
+<br/>
+Body
+
+```
+JSON
+{
+	"message": "Email or Password Invalid"
+} 
+```
+
+</div>
+
+</details>&nbsp;
+
+<details><summary>(POST) <strong>/user/recoverypassword</strong></summary>
+
+<br/>
+<b>1º Passo para recuperação de senha do usuário. 
+
+ - Gera um token e envia para o email cadastrado.</b>
+<br/>
+<br/>
+
+<div>
+Request:
+<br/>
+<br/>
+Body
+
+```
+JSON
+{
+	"email": "teste@teste.com",
+}
+```
+
+Response:
+
+HTTP CODE: 200
+
+```
+{
+	"jwt": HASH JWT
+}
+```
+
+HTTP CODE: 401
+
+```
+JSON
+{
+	"message": "Invalid Email"
+}
+```
+
+</div>
+
+</details>&nbsp;
+
+<details><summary>(POST) <strong>/user/matchtoken</strong></summary>
+
+<br/>
+<b>2º Passo para recuperação de senha do usuário. 
+
+ - Verifica o token que foi enviado por email.</b>
+<br/>
+
+<div>
+Request:
+
+<br/>
+<br/>
+HEADER
+
+```
+authorization: HASH JWT
+```
+<br/>
+Body
+
+```
+JSON
+{
+	"token": TOKEN RECEBIDO POR EMAIL
+}
+```
+
+Response:
+
+HTTP CODE: 200
+
+<br/>
+Body
+
+```
+OK
+```
+
+HTTP CODE: 401
+
+<br/>
+Body
+
+```
+JSON
+{
+	"message": "Invalid Token"
+}
+```
+
+</div>
+
+</details>&nbsp;
+
+<details><summary>(PUT) <strong>/user/recoverypassword/newpassword</strong></summary>
+
+<br/>
+<b>3º Passo para recuperação de senha do usuário. 
+
+ - Troca a senha antiga da conta por uma nova senha.</b>
+<br/>
+<br/>
+
+<div>
+Request:
+
+<br/>
+<br/>
+HEADER
+
+```
+authorization: HASH JWT
+```
+
+<br/>
+Body
+
+```
+JSON
+{
+	"password": "1234"
+}
+```
+
+Response:
+
+HTTP CODE: 200
+
+<br/>
+Body
+
+```
+OK
+```
+
+HTTP CODE: 401
+
+<br/>
+Body
+
+```
+JSON
+{
+	"message": "new password cannot be the same as the old one"
+}
+```
+
+</div>
+
+</details>&nbsp;
+
+<details><summary>(GET) <strong>/user/recoverypassword/resendtoken</strong></summary>
+
+<br/>
+<b>Faz parte do 2º passo para recuperação de senha. 
+
+ - Reenvia o token para o email cadastrado.</b>
+<br/>
+<br/>
+
+<div>
+Request:
+<br/>
+<br/>
+HEADER
+
+```
+authorization: HASH JWT
+```
+
+Response:
+
+HTTP CODE: 200
+
+<br/>
+Body
+
+```
+OK
+```
+
+HTTP CODE: 401
+
+<br/>
+Body
+
+```
+JSON
+{
+	"message": "Invalid JWT"
+}
+```
+
+</div>
+
+</details>&nbsp;
+
 ## :dart: Status do projeto
 Projeto finalizado.
